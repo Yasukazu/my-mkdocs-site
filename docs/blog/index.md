@@ -1,6 +1,5 @@
-# Blog
-### Usage of Blogging:
-#### Meta tags of articles:
+# ブロギングの使いかた / Usage of Blogging:
+### 記事のヘッダ / Meta tags of articles:
 ```yaml
 ---
 title: An article

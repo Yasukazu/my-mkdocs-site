@@ -34,16 +34,9 @@ plugins:
       dirs: # The directories to be included
         - blog
 ```
-## Blog
+## ブロギング
   This site uses 'Blogging' plugin: [MkDocs Blogging plugin homepage](https://liang2kl.github.io/mkdocs-blogging-plugin/)
-### Usage of Blogging:
-#### Meta tags of articles:
-```yaml
----
-title: An article
-description: A test article
-time: 2023-4-13 00:48 
----
-```
+
+ここから先はブログ(資料の追加・更新の記録です) / From here, blog(i.e. log of add/update of articles):
   
 {{ blog_content }}
