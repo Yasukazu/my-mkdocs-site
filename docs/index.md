@@ -30,13 +30,19 @@ extra:
   search:
     language: 'jp'
 plugins:
-  - blogging:
-      dirs: # The directories to be included
-        - blog
+  - blog:
+      blog_dir: .
+  - search
+  - tags
+nav:
+  - index.md
+#  - blogging:
+#      dirs: # The directories to be included
+#       - blog
 ```
-## ブロギング
-  This site uses 'Blogging' plugin: [MkDocs Blogging plugin homepage](https://liang2kl.github.io/mkdocs-blogging-plugin/)
+## ブログ
+  This site uses the built-in blog plugin in Material theme [How to use the built-in blog plugin](https://squidfunk.github.io/mkdocs-material/blog/2022/09/12/blog-support-just-landed/)
+    This site ever used 'Blogging' plugin: [MkDocs Blogging plugin homepage](https://liang2kl.github.io/mkdocs-blogging-plugin/)
+      {{ blog_content }}
 
 ここから先はブログ(資料の追加・更新の記録です) / From here, blog(i.e. log of add/update of articles):
-  
-{{ blog_content }}
