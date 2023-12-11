@@ -7,14 +7,12 @@ extra:
   search:
     language: 'jp'
 plugins:
-  #- blogging:
-  #    dirs: # The directories to be included
-  #      - blog
   - blog:
      blog_dir: .
   - search
   - tags
   - glightbox  
+  - macros
 nav:
   - index.md
   - usage.md
