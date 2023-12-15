@@ -6,6 +6,10 @@ theme:
 extra:
   search:
     language: 'jp'
+  food_tax: 0.08
+  with_food_tax: 1.08
+  item_tax: 0.1
+  with_item_tax: 1.1
 plugins:
   - blog:
      blog_dir: .
