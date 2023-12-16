@@ -14,7 +14,8 @@ plugins:
   - blog:
      blog_dir: .
   - search
-  - tags
+  - tags:
+      tags_file: tags.md
   - glightbox  
   - macros
 nav:
