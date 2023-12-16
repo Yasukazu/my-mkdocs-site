@@ -12,3 +12,8 @@ def define_env(env):
     def lang_span(s, lang, t):
         "HTML span lang="
         return s + f"<span lang='{lang}'>{t}</span>"
+    
+    @env.macro
+    def en_span(s, t):
+        "HTML span lang='en'"
+        return s + "<span lang='en'>" + t + "</span>"
