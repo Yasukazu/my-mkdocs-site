@@ -32,6 +32,17 @@ header = output.getvalue()
 slugs = [slugify(n) for n in args]
 node = '_'.join(slugs)
 filespec = os.path.join(posts_dir, node + '.md')
+if os.path.exists(filespec):
+	print(filespec + " already exists!")	
+	sys.exit(2)
 with open(filespec, 'w') as out:
 	print(header, file=out)
-print(filespec + ' is created.')
+if os.path.exists(filespec):
+	print(filespec + ' is created.')
+else:
+	print(filespec + ' is not created!')
+	sys.exit(3)
+ans = input("Do you want to edit?(Yes/no):")
+if len(ans) == 0 or ans.capitalize()[0] != 'N':
+	import subprocess
+	subprocess.run(["code", filespec])
