@@ -33,16 +33,17 @@ slugs = [slugify(n) for n in args]
 node = '_'.join(slugs)
 filespec = os.path.join(posts_dir, node + '.md')
 if os.path.exists(filespec):
-	print(filespec + " already exists!")	
+	print("It's already exists:")	
+	print(filespec)	
 	sys.exit(2)
+
 with open(filespec, 'w') as out:
 	print(header, file=out)
+
 if os.path.exists(filespec):
-	print(filespec + ' is created.')
+	print('Following file is created.')
+	print(filespec)
 else:
-	print(filespec + ' is not created!')
+	print('Following file is not created!')
+	print(filespec)
 	sys.exit(3)
-ans = input("Do you want to edit?(Yes/no):")
-if len(ans) == 0 or ans.capitalize()[0] != 'N':
-	import subprocess
-	subprocess.run(["code", filespec])
