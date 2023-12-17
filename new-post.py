@@ -1,5 +1,5 @@
 import sys, datetime, os, io, yaml
-from jinja2 import Template
+# from jinja2 import Template
 
 posts_dir = os.path.join('docs', 'posts')
 if not os.path.isdir(posts_dir):
@@ -14,12 +14,13 @@ output = io.StringIO()
 filespec = os.path.join(posts_dir, node + '.md')
 # with open(filespec, 'w') as output:
 	# print header
+'''
 template = """---
 title: {{ title }}
 date: {{ date }}
 ---
 """
-
+'''
 HR = '---'
 
 def slugify(cc: str):
