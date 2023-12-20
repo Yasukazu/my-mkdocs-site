@@ -4,13 +4,27 @@ import sys, datetime, os, yaml, regex
 from slugify import slugify
 # from pathvalidate import sanitize_filename
 # from jinja2 import Template
-hira_kata = regex.compile(r"\p{Hiragana}+|\p{Katakana}+|\p{Han}+|\p{posix_alnum}+")
+hira_kata = regex.compile(r"\p{Hiragana}+|\p{Katakana}+|\p{Han}+|\p{N}+")
 # charkind_ranges = lambda title: [slice(x.start(), x.end()) for x in hira_kata.finditer(title)]
 
 def split_charkind(text):
 	list = []
+	# xx = hira_kata.findall(text)
+	"""
+	while cur < len(text):
+		x = hira_kata.search(text[cur:])
+		if x:
+			list.append(text[x.start(): x.end()])
+			cur = x.end()
+	"""
+	cur = 0
 	for x in hira_kata.finditer(text):
-		list.append(text[x.start(): x.end()])
+		if x.start() > cur:
+			list.append(text[cur : x.start()])
+		list.append(text[x.start() : x.end()])
+		cur = x.end()
+	if cur < len(text):
+		list.append(text[cur:])
 	return list
 
 posts_dir = os.path.join('docs', 'posts')
