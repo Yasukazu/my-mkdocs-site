@@ -27,6 +27,14 @@ def split_charkind(text):
 		list.append(text[cur:])
 	return list
 
+def join_slugs(words):
+	list = []
+	for word in words:
+		slug = slugify(word, separator='-')
+		if len(slug) > 0:
+			list.append(slug)
+	return list
+
 posts_dir = os.path.join('docs', 'posts')
 if not os.path.isdir(posts_dir):
 	sys.exit(f"{posts_dir} does not exist!")
@@ -56,7 +64,7 @@ meta = {'title': title, 'date': today, 'tags': tags}
 front_mat = yaml.dump(meta, allow_unicode=True).replace('\n-', '\n -')
 # print(HR, file=output) print(front_mat, file=output) print(HR, file=output)
 header = '\n'.join([HR, front_mat, HR]) # output.getvalue()
-slug = slugify(' '.join(split_charkind(title)), stopwords=['the', 'a'])
+slug = '_'.join(join_slugs(split_charkind(title))) # , stopwords=['the', 'a'])
 filespec = os.path.join(posts_dir, slug + '.md')
 with open(filespec, 'w', encoding='utf-8') as out:
 	print(header, file=out)
